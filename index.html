@@ -1,1 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Альберт Шайбаков · Бизнес брокер</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* ----- ЕДИНЫЙ КОНТЕЙНЕР (ширина как у первого блока) ----- */
+        .main-container {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        /* ----- СТИЛИ ДЛЯ ВСЕХ БЛОКОВ ----- */
+        .block {
+            width: 100%;
+            background: white;
+            border-radius: 36px;
+            box-shadow: 0 25px 45px -12px rgba(0,20,50,0.15);
+            padding: 50px 45px;
+            backdrop-filter: blur(2px);
+            background: linear-gradient(145deg, #ffffff 0%, #fafcff 100%);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* ЗАГОЛОВОК БЛОКА — бирюзовая полоса ТОЛЬКО ЗДЕСЬ */
+        .block-title {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #0b1c2f;
+            margin-bottom: 25px;
+            border-left: 6px solid #2d7a9b;
+            padding-left: 25px;
+            background: rgba(45, 122, 155, 0.02);
+            border-radius: 0 20px 20px 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* ПОДЗАГОЛОВОК — без полосы, мягкий фон */
+        .block-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #2c4e62;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            background: rgba(45, 122, 155, 0.03);
+            padding: 25px 30px;
+            border-radius: 28px;
+            border: 1px solid rgba(45,122,155,0.1);
+        }
+
+        .block-subtitle strong {
+            color: #0a2c3d;
+            font-weight: 700;
+        }
+
+        /* ----- ПЕРВЫЙ ЭКРАН (ОСОБАЯ ВЁРСТКА) ----- */
+        .hero {
+            width: 100%;
+            background: white;
+            border-radius: 36px;
+            box-shadow: 0 25px 45px -12px rgba(0,20,50,0.15);
+            padding: 50px 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            backdrop-filter: blur(2px);
+            background: linear-gradient(145deg, #ffffff 0%, #fafcff 100%);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .hero-content {
+            flex: 1 1 55%;
+            max-width: 620px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: #0b1c2f;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #33485d;
+            margin-bottom: 40px;
+            border-left: 6px solid #2d7a9b;
+            padding-left: 25px;
+            background: rgba(45, 122, 155, 0.02);
+            border-radius: 0 20px 20px 0;
+        }
+
+        .btn-order {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a2c3d;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 18px 48px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            box-shadow: 0 10px 20px -8px rgba(10,44,61,0.3);
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 10px;
+        }
+
+        .btn-order i {
+            margin-left: 12px;
+            font-size: 1.2rem;
+        }
+
+        .btn-order:hover {
+            background: #124c63;
+            transform: scale(1.02);
+            box-shadow: 0 18px 30px -8px #0a2c3d70;
+        }
+
+        .hero-image {
+            flex: 0 0 38%;
+            max-width: 380px;
+            background: #e7edf3;
+            border-radius: 28px;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 25px;
+            text-align: center;
+            aspect-ratio: 1 / 1.1;
+            border: 1px solid rgba(255,255,255,0.6);
+            background: linear-gradient(145deg, #f0f4fa, #e2e9f0);
+        }
+
+        .hero-image i {
+            font-size: 5.2rem;
+            color: #2c5a73;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 12px rgba(45,122,155,0.1);
+        }
+
+        .hero-image .image-caption {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e3e50;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.5);
+            padding: 8px 18px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-image .image-sub {
+            font-size: 0.95rem;
+            color: #4c6a7c;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ----- ПАРТНЁРСКАЯ СЕТЬ (12 БРОКЕРОВ) ----- */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .partner-card {
+            width: 100%;
+            max-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: white;
+            padding: 24px 16px 20px;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.04);
+            transition: 0.25s ease;
+            border: 1px solid rgba(45,122,155,0.12);
+            backdrop-filter: blur(2px);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 30px -12px rgba(10,44,61,0.12);
+            border-color: rgba(45,122,155,0.3);
+        }
+
+        .partner-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #eef2f6, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 4px solid white;
+            box-shadow: 0 8px 16px -6px rgba(0,0,0,0.08);
+            color: #2d7a9b;
+            font-size: 3.3rem;
+        }
+
+        .partner-city {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0a2c3d;
+            margin-bottom: 6px;
+        }
+
+        .partner-role {
+            font-size: 0.8rem;
+            color: #4f6f7e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .partner-firstname {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1e3e50;
+            display: block;
+            line-height: 1.3;
+        }
+
+        .partner-lastname {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #1e3e50;
+            display: block;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #0a2c3d;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            box-shadow: 0 6px 14px -6px rgba(10,44,61,0.25);
+            border: 1px solid rgba(255,255,255,0.15);
+            width: 140px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .telegram-btn i {
+            font-size: 1.1rem;
+        }
+
+        .telegram-btn:hover {
+            background: #124c63;
+            transform: scale(1.02);
+            box-shadow: 0 12px 18px -8px #0a2c3d70;
+        }
+
+        /* ----- НАШИ СДЕЛКИ (6 карточек) ----- */
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .deal-card {
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px -8px rgba(0,0,0,0.04);
+            transition: 0.25s ease;
+            border: 1px solid rgba(45,122,155,0.12);
+            backdrop-filter: blur(2px);
+            padding: 20px 20px 25px;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 30px -12px rgba(10,44,61,0.12);
+            border-color: rgba(45,122,155,0.3);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #f0f4fa;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2f6;
+            color: #2c5a73;
+            font-size: 3.5rem;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .carousel-slide i {
+            font-size: 3.5rem;
+            color: #2d7a9b;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: #0a2c3d;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.15s;
+            z-index: 10;
+            opacity: 0.9;
+        }
+
+        .carousel-control:hover {
+            background: #0a2c3d;
+            color: white;
+        }
+
+        .carousel-control.prev { left: 12px; }
+        .carousel-control.next { right: 12px; }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.7);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .carousel-indicator.active {
+            background: #0a2c3d;
+            transform: scale(1.2);
+        }
+
+        .deal-type {
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: #0a2c3d;
+            line-height: 1.3;
+            min-height: 3.6rem;
+            display: flex;
+            align-items: center;
+            word-break: break-word;
+            margin-bottom: 8px;
+        }
+
+        .deal-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1rem;
+            color: #2c4e62;
+            margin-bottom: 15px;
+            min-height: 1.6rem;
+        }
+
+        .deal-location i {
+            color: #2d7a9b;
+            width: 16px;
+        }
+
+        .deal-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin: 0;
+            padding: 15px 0;
+            border-top: 1px solid rgba(45,122,155,0.1);
+            border-bottom: 1px solid rgba(45,122,155,0.1);
+        }
+
+        .deal-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #157145;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .deal-price span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4f6f7e;
+            display: block;
+            margin-top: 5px;
+            white-space: nowrap;
+        }
+
+        .deal-time {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a2c3d;
+            white-space: nowrap;
+        }
+
+        .deal-time i {
+            color: #2d7a9b;
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+
+        /* ----- МОДАЛЬНОЕ ОКНО ----- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 40, 0.7);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 40px;
+            max-width: 520px;
+            width: 100%;
+            padding: 40px 35px;
+            box-shadow: 0 35px 60px -15px #0f1f2f;
+            position: relative;
+            animation: modalFade 0.3s;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0.7; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close {
+            position: absolute;
+            top: 24px;
+            right: 30px;
+            font-size: 36px;
+            font-weight: 300;
+            color: #7e8c9c;
+            cursor: pointer;
+            transition: 0.15s;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #1a2e3f;
+        }
+
+        #formContainer h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #0b2a3b;
+            letter-spacing: -0.01em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2c4a5e;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 22px;
+            font-size: 1.1rem;
+            background: #f4f7fb;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            outline: none;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        input:focus {
+            border-color: #2d7a9b;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(45,122,155,0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px 20px;
+            background: #157145;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 60px;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 12px 20px -10px #0f4a2e;
+            border: 1px solid #45a04933;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            background: #1d8c54;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -10px #0f4a2e;
+        }
+
+        .btn-submit:active {
+            transform: translateY(2px);
+            box-shadow: 0 8px 15px -8px #0f4a2e;
+        }
+
+        #thankYouMessage {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        #thankYouMessage p {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #157145;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        #thankYouMessage i {
+            font-size: 4rem;
+            color: #2a8c5e;
+            margin-bottom: 20px;
+        }
+
+        .attribution {
+            color: #8a9aa8;
+            font-size: 0.8rem;
+            border-top: 1px solid #dee6ed;
+            padding-top: 25px;
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* ----- АДАПТАЦИЯ ----- */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                padding: 40px 30px;
+            }
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            .hero-content p {
+                border-left: none;
+                border-top: 6px solid #2d7a9b;
+                padding-left: 0;
+                padding-top: 20px;
+                border-radius: 0;
+                text-align: left;
+            }
+            .hero-image {
+                flex: 0 0 auto;
+                width: 80%;
+                max-width: 400px;
+                aspect-ratio: 1 / 1;
+            }
+            .partners-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .block { padding: 45px 35px; }
+            .block-title { font-size: 1.9rem; }
+            .hero { padding: 40px 30px; }
+            h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.3rem; }
+            .btn-order { font-size: 1.1rem; padding: 15px 35px; }
+            .partners-grid { grid-template-columns: repeat(2, 1fr); }
+            .deals-grid { grid-template-columns: repeat(2, 1fr); }
+            .partner-card { max-width: 240px; }
+        }
+
+        @media (max-width: 650px) {
+            .partners-grid { grid-template-columns: 1fr; }
+            .deals-grid { grid-template-columns: 1fr; }
+            .deal-card { max-width: 400px; }
+            .partner-card { max-width: 280px; }
+        }
+
+        @media (max-width: 480px) {
+            .block { padding: 35px 25px; }
+            .block-title { font-size: 1.6rem; }
+            .hero { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .hero-image { width: 100%; }
+            .btn-order { font-size: 1rem; padding: 14px 28px; }
+            .telegram-btn { width: 160px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+
+        <!-- ========== ПЕРВЫЙ ЭКРАН ========== -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Бизнес брокер Альберт Шайбаков</h1>
+                <p>помогаю предпринимателям продать бизнес быстро и дорого</p>
+                <button class="btn-order" id="orderCallBtn">
+                    заказать звонок <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-camera-retro"></i>
+                <span class="image-caption">Альберт Шайбаков</span>
+                <span class="image-sub">эксперт по продажам</span>
+                <div style="margin-top: 20px; font-size: 0.85rem; color: #2c5a73; background: rgba(255,255,255,0.6); padding: 6px 15px; border-radius: 30px;">
+                    <i class="fas fa-image"></i> фотография
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ВТОРОЙ БЛОК: ПАРТНЁРСКАЯ СЕТЬ ========== -->
+        <div class="block">
+            <h2 class="block-title">Почему вам выгодно работать со мной?</h2>
+            <div class="block-subtitle">
+                <strong>У меня партнёрская сеть из 12 бизнес-брокеров по всей России</strong> — от Владивостока до Краснодара.  
+                Каждый из нас за годы работы сформировал огромную базу надёжных покупателей.  
+                Ваш бизнес получает доступ к клиентам по всей стране. <strong>Это — скорость и максимальная цена.</strong>
+            </div>
+
+            <div class="partners-grid">
+                <!-- Владивосток • Илья Игнатенко -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Владивосток</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Илья</span>
+                    <span class="partner-lastname">Игнатенко</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Екатеринбург • Андрей Половников -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Екатеринбург</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Андрей</span>
+                    <span class="partner-lastname">Половников</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Казань • Ильдар Хисматуллин -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Казань</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Ильдар</span>
+                    <span class="partner-lastname">Хисматуллин</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Краснодар • Андрей Островский -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Краснодар</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Андрей</span>
+                    <span class="partner-lastname">Островский</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Красноярск • Илья Гриднев -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Красноярск</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Илья</span>
+                    <span class="partner-lastname">Гриднев</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Москва • Вячеслав Данилов -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Москва</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Вячеслав</span>
+                    <span class="partner-lastname">Данилов</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Нижний Новгород • Роман Лабутин -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Н. Новгород</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Роман</span>
+                    <span class="partner-lastname">Лабутин</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Новосибирск • Максим Алёшичев -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Новосибирск</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Максим</span>
+                    <span class="partner-lastname">Алёшичев</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Пермь • Роман Берман -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Пермь</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Роман</span>
+                    <span class="partner-lastname">Берман</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Самара • Павел Бобков -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Самара</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Павел</span>
+                    <span class="partner-lastname">Бобков</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Санкт-Петербург (СПб) • Алексей Коцин -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">СПб</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Алексей</span>
+                    <span class="partner-lastname">Коцин</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+                <!-- Ярославль • Дмитрий Горохов -->
+                <div class="partner-card">
+                    <div class="partner-photo"><i class="fas fa-user-tie"></i></div>
+                    <span class="partner-city">Ярославль</span>
+                    <span class="partner-role">бизнес брокер</span>
+                    <span class="partner-firstname">Дмитрий</span>
+                    <span class="partner-lastname">Горохов</span>
+                    <a href="#" class="telegram-btn"><i class="fab fa-telegram-plane"></i> написать</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== ТРЕТИЙ БЛОК: НАШИ СДЕЛКИ ========== -->
+        <div class="block">
+            <h2 class="block-title">Продаём успешно бизнесы по всей России</h2>
+            <div class="block-subtitle">
+                <strong>12 регионов — 12 побед.</strong> Каждая сделка — финансовая свобода наших клиентов. 
+                Результаты, которые говорят сами за себя.
+            </div>
+
+            <div class="deals-grid">
+                <!-- Сделка 1: Швейное производство, Москва -->
+                <div class="deal-card">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active"><i class="fas fa-tshirt"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-robot"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-boxes"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-scissors"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-ruler"></i></div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide(this)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-control next" onclick="nextSlide(this)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide(this, 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 2)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 3)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 4)"></button>
+                        </div>
+                    </div>
+                    <div class="deal-type">Швейное производство</div>
+                    <div class="deal-location"><i class="fas fa-map-marker-alt"></i> Москва</div>
+                    <div class="deal-stats">
+                        <div class="deal-price">18.5 млн ₽<span>цена продажи</span></div>
+                        <div class="deal-time"><i class="far fa-calendar-alt"></i> 45 дней</div>
+                    </div>
+                </div>
+                <!-- Сделка 2: Стоматологическая клиника, СПб -->
+                <div class="deal-card">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active"><i class="fas fa-tooth"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-microscope"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-couch"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-x-ray"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-syringe"></i></div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide(this)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-control next" onclick="nextSlide(this)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide(this, 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 2)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 3)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 4)"></button>
+                        </div>
+                    </div>
+                    <div class="deal-type">Стоматологическая клиника</div>
+                    <div class="deal-location"><i class="fas fa-map-marker-alt"></i> Санкт-Петербург</div>
+                    <div class="deal-stats">
+                        <div class="deal-price">32 млн ₽<span>цена продажи</span></div>
+                        <div class="deal-time"><i class="far fa-calendar-alt"></i> 70 дней</div>
+                    </div>
+                </div>
+                <!-- Сделка 3: Интернет-магазин автозапчастей, Новосибирск -->
+                <div class="deal-card">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active"><i class="fas fa-car"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-laptop"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-truck"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-warehouse"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-oil-can"></i></div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide(this)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-control next" onclick="nextSlide(this)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide(this, 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 2)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 3)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 4)"></button>
+                        </div>
+                    </div>
+                    <div class="deal-type">Интернет-магазин автозапчастей</div>
+                    <div class="deal-location"><i class="fas fa-map-marker-alt"></i> Новосибирск</div>
+                    <div class="deal-stats">
+                        <div class="deal-price">9.8 млн ₽<span>цена продажи</span></div>
+                        <div class="deal-time"><i class="far fa-calendar-alt"></i> 35 дней</div>
+                    </div>
+                </div>
+                <!-- Сделка 4: Кофейня с кондитерской, Краснодар -->
+                <div class="deal-card">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active"><i class="fas fa-coffee"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-cake"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-ice-cream"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-cash-register"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-oven"></i></div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide(this)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-control next" onclick="nextSlide(this)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide(this, 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 2)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 3)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 4)"></button>
+                        </div>
+                    </div>
+                    <div class="deal-type">Кофейня с кондитерской</div>
+                    <div class="deal-location"><i class="fas fa-map-marker-alt"></i> Краснодар</div>
+                    <div class="deal-stats">
+                        <div class="deal-price">12.2 млн ₽<span>цена продажи</span></div>
+                        <div class="deal-time"><i class="far fa-calendar-alt"></i> 52 дня</div>
+                    </div>
+                </div>
+                <!-- Сделка 5: СТО, Екатеринбург -->
+                <div class="deal-card">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active"><i class="fas fa-oil-can"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-wrench"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-tools"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-users"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-warehouse"></i></div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide(this)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-control next" onclick="nextSlide(this)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide(this, 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 2)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 3)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 4)"></button>
+                        </div>
+                    </div>
+                    <div class="deal-type">СТО (автосервис)</div>
+                    <div class="deal-location"><i class="fas fa-map-marker-alt"></i> Екатеринбург</div>
+                    <div class="deal-stats">
+                        <div class="deal-price">23.7 млн ₽<span>цена продажи</span></div>
+                        <div class="deal-time"><i class="far fa-calendar-alt"></i> 63 дня</div>
+                    </div>
+                </div>
+                <!-- Сделка 6: Пекарня-кондитерская, Казань -->
+                <div class="deal-card">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active"><i class="fas fa-bread-slice"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-store"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-oven"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-pie"></i></div>
+                            <div class="carousel-slide"><i class="fas fa-rolling-pin"></i></div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide(this)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-control next" onclick="nextSlide(this)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" onclick="goToSlide(this, 0)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 1)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 2)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 3)"></button>
+                            <button class="carousel-indicator" onclick="goToSlide(this, 4)"></button>
+                        </div>
+                    </div>
+                    <div class="deal-type">Пекарня-кондитерская</div>
+                    <div class="deal-location"><i class="fas fa-map-marker-alt"></i> Казань</div>
+                    <div class="deal-stats">
+                        <div class="deal-price">8.9 млн ₽<span>цена продажи</span></div>
+                        <div class="deal-time"><i class="far fa-calendar-alt"></i> 29 дней</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ПОДВАЛ -->
+        <div class="attribution">
+            <i class="fas fa-regular fa-building"></i> надёжный брокер · эксперт
+        </div>
+
+    </div> <!-- .main-container -->
+
+    <!-- МОДАЛЬНОЕ ОКНО (ЗАКАЗ ЗВОНКА) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="formContainer">
+                <h2>Заказать звонок</h2>
+                <form id="callForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" placeholder="Александр" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Ваш номер телефона</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-phone-alt"></i> Нажмите чтобы заказать звонок
+                    </button>
+                </form>
+            </div>
+            <div id="thankYouMessage" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <p>Спасибо!</p>
+                <p style="font-size: 1.2rem; font-weight: 400; color: #2d4e64;">Мы свяжемся с вами в ближайшее время.</p>
+                <span style="display: block; margin-top: 20px; font-size: 0.9rem; color: #6f8b9b;">возврат на главную...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- СКРИПТЫ -->
+    <script>
+        // КАРУСЕЛЬ
+        window.prevSlide = function(btn) {
+            const car = btn.closest('.carousel');
+            const slides = car.querySelectorAll('.carousel-slide');
+            const inds = car.querySelectorAll('.carousel-indicator');
+            let active = Array.from(slides).findIndex(s => s.classList.contains('active'));
+            active = active <= 0 ? slides.length - 1 : active - 1;
+            setActiveSlide(car, slides, inds, active);
+        };
+
+        window.nextSlide = function(btn) {
+            const car = btn.closest('.carousel');
+            const slides = car.querySelectorAll('.carousel-slide');
+            const inds = car.querySelectorAll('.carousel-indicator');
+            let active = Array.from(slides).findIndex(s => s.classList.contains('active'));
+            active = active >= slides.length - 1 ? 0 : active + 1;
+            setActiveSlide(car, slides, inds, active);
+        };
+
+        window.goToSlide = function(btn, idx) {
+            const car = btn.closest('.carousel');
+            const slides = car.querySelectorAll('.carousel-slide');
+            const inds = car.querySelectorAll('.carousel-indicator');
+            setActiveSlide(car, slides, inds, idx);
+        };
+
+        function setActiveSlide(car, slides, inds, idx) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+            inds.forEach((i, index) => i.classList.toggle('active', index === idx));
+        }
+
+        // МОДАЛЬНОЕ ОКНО
+        const modal = document.getElementById('modal');
+        const openBtn = document.getElementById('orderCallBtn');
+        const closeBtn = document.querySelector('.close');
+        const formContainer = document.getElementById('formContainer');
+        const thankYouDiv = document.getElementById('thankYouMessage');
+        const callForm = document.getElementById('callForm');
+        const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
+
+        if (openBtn) {
+            openBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                formContainer.style.display = 'block';
+                thankYouDiv.style.display = 'none';
+                callForm.reset();
+                setTimeout(() => nameInput?.focus(), 120);
+            });
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        }
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+
+        if (callForm) {
+            callForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (!nameInput.value.trim() || !phoneInput.value.trim()) {
+                    alert('Пожалуйста, заполните имя и номер телефона.');
+                    return;
+                }
+                formContainer.style.display = 'none';
+                thankYouDiv.style.display = 'block';
+                setTimeout(() => { modal.style.display = 'none'; }, 2300);
+            });
+        }
+    </script>
+</body>
+</html>
